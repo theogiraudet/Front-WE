@@ -17,6 +17,9 @@ export const Tabs: React.FC = () => {
       <NavItem>
         <NavLink to={`${url}${Urls.GLOBAL_FEED}`}>Global Feed</NavLink>
       </NavItem>
+        <NavItem>
+            <NavLink to={`${url}${Urls.STAR_WARS_FEED}`}>Star Wars Feed</NavLink>
+        </NavItem>
       {currentTag && (
         <NavItem>
           <NavLink to={`${url}${Urls.FEED_BY_TAG}?tag=${currentTag}`}>

@@ -4,6 +4,7 @@ import { Urls, AuthCosumer, PrivateRoute } from 'router';
 
 const YourFeed = lazy(() => import('./pages/your-feed'));
 const GlobalFeed = lazy(() => import('./pages/global-feed'));
+const StarWarsFeed = lazy(() => import('./pages/star-wars-feed'));
 const FeedByTab = lazy(() => import('./pages/feed-by-tag'));
 const NoMatch = lazy(() => import('pages/not-match'));
 
@@ -24,6 +25,7 @@ export const Routes: React.FC = () => {
         </AuthCosumer>
       </Route>
       <Route component={GlobalFeed} path={`${path}${Urls.GLOBAL_FEED}`} />
+        <Route component={StarWarsFeed} path={`${path}${Urls.STAR_WARS_FEED}`} />
       <PrivateRoute component={YourFeed} path={`${path}${Urls.YOUR_FEED}`} />
       <Route component={FeedByTab} path={`${path}${Urls.FEED_BY_TAG}`} />
       <Route component={NoMatch} path="*" />

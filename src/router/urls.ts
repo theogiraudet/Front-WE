@@ -3,6 +3,7 @@ export enum Urls {
   HOME = '/home',
   YOUR_FEED = '/your-feed',
   GLOBAL_FEED = '/global-feed',
+  STAR_WARS_FEED = '/star-wars-feed',
   FEED_BY_TAG = '/feed-by-tag',
   LOGIN = '/login',
   REGISTRATION = '/registration',
