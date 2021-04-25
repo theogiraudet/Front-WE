@@ -9,11 +9,12 @@ export const {
   $feed,
 } = feed.CreateMovieModel();
 
+
 export const fetchMoviesFx = createEffect<void, Movies>(
   () => {
     return api
-      .get(`films`)
-      .then(({ data }) => data);
+      .get<Movies>(`films`)
+      .then(({data}) => data);
   }
 );
 

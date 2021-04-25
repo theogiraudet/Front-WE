@@ -8,16 +8,16 @@ type Props = {
 export const DetailPreview: React.FC<Props> = ({
     data: {
         title,
-        openingCrawl,
+        opening_crawl,
         director,
-        releaseDate,
+        release_date,
     }
 }) => (
     <article className="article-preview">
-        <ArticleMeta date={releaseDate} name={director}/>
+        <ArticleMeta date={release_date} name={director}/>
         <span className="preview-link">
             <h1>{title}</h1>
-            <p>{openingCrawl}</p>
+            <p>{opening_crawl}</p>
         </span>
     </article>
 );

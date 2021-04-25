@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom';
-
 type Props = {
-    name: String,
-    date: Date
+    name: string,
+    date: string
 };
 
 export const ArticleMeta: React.FC<Props> = ({
@@ -10,12 +8,12 @@ export const ArticleMeta: React.FC<Props> = ({
     date
 }) => (
     <div className="article-meta">
-        <img alt="Chewbacca" src="https://static.wikia.nocookie.net/frstarwars/images/4/48/Chewbacca_TLJ.png/revision/latest?cb=20190831143844" />
+        <img alt="Chewbacca" src="https://static.wikia.nocookie.net/frstarwars/images/4/48/Chewbacca_TLJ.png" />
         <div className="info">
             <span className="author">
                 {name}
             </span>
-            <span className="date">{date.toDateString()}</span>
+            <span className="date">{date}</span>
         </div>
     </div>
 );

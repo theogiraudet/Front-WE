@@ -8,11 +8,14 @@ import * as types from "./types";
 export const CreateMovieModel = (): types.CreateMovieModel => {
 
     const $feed = createStore<Movies>({
-        movies: []
+        count: 0,
+        next: undefined,
+        previous: undefined,
+        results: []
     })
 
 
-    const $movies = $feed.map((x) => x.movies);
+    const $movies = $feed.map(x => x.results);
 
     return {
         Gate: createGate(),

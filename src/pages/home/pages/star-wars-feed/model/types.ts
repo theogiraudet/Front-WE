@@ -1,29 +1,33 @@
 import {Store} from "effector-root";
 import { Gate } from 'effector-react';
+import {ReadonlyDeep} from "type-fest";
 
-export type MovieDetails = {
-  title:        string;
-  episodeID:    number;
-  openingCrawl: string;
-  director:     string;
-  producer:     string;
-  releaseDate:  Date;
-  characters:   string[];
-  planets:      string[];
-  starships:    string[];
-  vehicles:     string[];
-  species:      string[];
-  created:      Date;
-  edited:       Date;
-  url:          string;
-}
+export type MovieDetails = ReadonlyDeep<{
+  title:         string;
+  "episode_id":    number;
+  "opening_crawl": string;
+  director:      string;
+  producer:      string;
+  "release_date":  string;
+  characters:    string[];
+  planets:       string[];
+  starships:     string[];
+  vehicles:      string[];
+  species:       string[];
+  created:       string;
+  edited:        string;
+  url:           string;
+}>
 
-export type Movies = {
-  movies: readonly MovieDetails[]
-}
+export type Movies = ReadonlyDeep<{
+  count: number;
+  next: any;
+  previous: any;
+  results: readonly MovieDetails[]
+}>
 
 export type CreateMovieModel = {
   Gate: Gate<unknown>;
   $feed: Store<Movies>;
-  $movies: Store<Movies["movies"]>;
+  $movies: Store<Movies['results']>;
 }
