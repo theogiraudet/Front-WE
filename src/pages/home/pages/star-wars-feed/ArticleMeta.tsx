@@ -1,14 +1,16 @@
 type Props = {
     name: string,
-    date: string
+    date: string,
+    pictureUrl: string
 };
 
 export const ArticleMeta: React.FC<Props> = ({
     name,
-    date
+    date,
+    pictureUrl
 }) => (
     <div className="article-meta">
-        <img alt="Chewbacca" src="https://static.wikia.nocookie.net/frstarwars/images/4/48/Chewbacca_TLJ.png" />
+        <img alt="Chewbacca" src={pictureUrl} />
         <div className="info">
             <span className="author">
                 {name}

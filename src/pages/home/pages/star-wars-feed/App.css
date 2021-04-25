@@ -1,0 +1,6 @@
+.btn-success {
+    background-color: #5cb85c;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #5cb85c;
+}

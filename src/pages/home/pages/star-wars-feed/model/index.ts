@@ -1,28 +1,31 @@
 import { createEffect, forward, attach } from 'effector-root';
 import { api } from '../others/api';
-import * as feed from './creator';
-import {Movies} from "./types";
+import * as creator from './creator';
+import {convertToEnglish, LanguageInformations, ReqMoviesResultEnglish} from "./types";
 
 export const {
   Gate,
   $movies,
-  $feed,
-} = feed.CreateMovieModel();
+  $reqResult,
+  $languageInfos,
+  $updateLanguage
+} = creator.CreateMovieModel();
 
 
-export const fetchMoviesFx = createEffect<void, Movies>(
-  () => {
+export const fetchMoviesFx = createEffect<LanguageInformations, ReqMoviesResultEnglish>(
+  (infos ) => {
     return api
-      .get<Movies>(`films`)
-      .then(({data}) => data);
+      .get(`films?format=${infos.queryValue}`)
+      .then(({data}) => convertToEnglish(data)!);
   }
 );
 
-$feed.on(fetchMoviesFx.doneData, (_, payload) => payload);
+$reqResult.on(fetchMoviesFx.doneData, (_, payload) => payload);
 
 forward({
-  from: [Gate.open],
+  from: [Gate.open, $languageInfos],
   to: attach({
+    source: $languageInfos,
     effect: fetchMoviesFx,
   }),
 });
