@@ -7,6 +7,7 @@ git clone https://github.com/theogiraudet/Front-WE.git
 npm install
 npm start
 ```
+_Pas impossible qu'un ``npm install --force`` soit nécessaire pour l'installation, mais cela marche bien après_  
 Une fois cela fait, le site sera accessible à l'URL suivant :
 http://localhost:4100/effector-react-realworld-example-app/.
 
