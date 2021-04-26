@@ -1,0 +1,121 @@
+/* index.css */
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Saira+Extra+Condensed:500');
+/* Minimal Reset */
+.star_wars_html, .star_wars_body, .star_wars_root, .star_wars_h1, .star_wars_h2, .star_wars_p, .star_wars_intro, audio {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.star_wars_html {
+    font-size: 30px;
+}
+.star_wars_body {
+    align-items: center;
+    background: black;
+    color: rgb(229, 177, 58);
+    display: flex;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    justify-content: center;
+    line-height: 1.25;
+    overflow: hidden;
+}
+.star_wars_root {
+    width: 100%;
+}
+
+.star_wars_container {
+    height: 100vh;
+    position: relative;
+    width: 100%;
+}
+
+.star_wars_container:before {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
+    bottom: 0;
+    content: " ";
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.star_wars_intro, .star_wars_logo {
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    z-index: 200;
+}
+
+.star_wars_intro .star_wars_p {
+    color: rgb(75, 213, 238);
+    font-size: 1.25rem;
+}
+
+.star_wars_logo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 18rem;
+}
+
+.star_wars_crawl {
+    font-size: 300%;
+    bottom: 0;
+    height: 80rem;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%) perspective(300px) rotateX(18deg);
+    transform-origin: 50% 100%;
+    width: 90%;
+}
+
+.star_wars_content {
+    position: absolute;
+    top: 100%;
+}
+
+.star_wars_h1 {
+    font-weight: 600;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.star_wars_h2 {
+    font-family: "Saira Extra Condensed", sans-serif;
+    font-size: 250%;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 7rem;
+    transform: scale(1, 1.5);
+    text-align: center;
+}
+
+.star_wars_content .star_wars_p {
+    font-weight: 700;
+    line-height: 1.33;
+    margin-bottom: 4rem;
+    text-align: justify;
+}
+
+.star_wars_volume {
+    background: transparent;
+    border: 0;
+    bottom: 10px;
+    cursor: pointer;
+    left: 10px;
+    position: absolute;
+    z-index: 1000;
+}
+
+.star_wars_volume img {
+    height: 24px;
+}

@@ -9,19 +9,26 @@ import {Dropdown, DropdownButton} from "react-bootstrap";
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+/**
+ * Fonction pour récupérer le dictionnaire des paramètres de l'URL
+ */
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
+/**
+ * Composant principal du feed Star Wars
+ */
 const StarWarsFeedPage: React.FC = () => {
-
     useGate(model.Gate);
+
     const loading = useStore(model.fetchMoviesFx.pending);
     const query = useQuery()
     const infos = Array.from(query.keys()).map(queryKey => languageMap.get(queryKey)).pop()
+
+    // On demande une mise à jour de la langue avec pour valeur la nouvelle sélectionnée
     model.$updateLanguage(infos || languageMap.get(undefined)!)
 
-    // @ts-ignore
     return (
         <>
             <DropdownButton className="float-right" variant="success" id="dropdown-basic-button" title="Language">
@@ -38,6 +45,8 @@ const StarWarsFeedPage: React.FC = () => {
                             <DetailPreview
                                 pictureUrl={model.$languageInfos.getState().imgUrl}
                                 data={item}
+                                episodeTranslation={model.$languageInfos.getState().episodeTranslation}
+                                introTranslation={model.$languageInfos.getState().introTranslation}
                             />
                         </li>
                     ),

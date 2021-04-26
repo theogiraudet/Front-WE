@@ -3,6 +3,7 @@ import {Event} from "effector";
 import { Gate } from 'effector-react';
 import {ReadonlyDeep} from "type-fest";
 
+//Représentation des informations d'un film
 export type MovieEnglishDetails = ReadonlyDeep<{
   title:           string
   "episode_id":    number
@@ -18,13 +19,6 @@ export type MovieEnglishDetails = ReadonlyDeep<{
   created:         string
   edited:          string
   url:             string
-}>
-
-export type ReqMoviesResultEnglish = ReadonlyDeep<{
-  count:    number
-  next:     any
-  previous: any
-  results:  readonly MovieEnglishDetails[]
 }>
 
 export type MovieDetailsWookie = ReadonlyDeep<{
@@ -44,6 +38,14 @@ export type MovieDetailsWookie = ReadonlyDeep<{
   hurcan:                      string
 }>
 
+//Représentation des informations retournées par la requête à l'API
+export type ReqMoviesResultEnglish = ReadonlyDeep<{
+  count:    number
+  next:     any
+  previous: any
+  results:  readonly MovieEnglishDetails[]
+}>
+
 export type ReqMoviesResultWookiee = ReadonlyDeep<{
   oaoohuwhao:      number
   whwokao:         any
@@ -51,7 +53,7 @@ export type ReqMoviesResultWookiee = ReadonlyDeep<{
   rcwochuanaoc:    readonly MovieDetailsWookie[]
 }>
 
-
+// Représentation des états retournés par creator.ts
 export type CreateMovieModel = {
   Gate:            Gate<unknown>
   $reqResult:      Store<ReqMoviesResultEnglish>
@@ -64,6 +66,8 @@ export type LanguageInformations = {
   name: string
   queryValue: string
   imgUrl: string
+  episodeTranslation: string
+  introTranslation: string
 }
 
 function wookieToEnglishDetailObj(wookie: MovieDetailsWookie): MovieEnglishDetails {
@@ -112,12 +116,16 @@ export const languageMap = new Map<string | undefined, LanguageInformations>([
   ["wookiee", {
     name: "Wookiee",
     queryValue: "wookiee",
-    imgUrl: "https://avatarfiles.alphacoders.com/131/thumb-1920-131312.jpg"
+    imgUrl: "https://avatarfiles.alphacoders.com/131/thumb-1920-131312.jpg",
+    episodeTranslation: "woakahcoowawo",
+    introTranslation: "Ra anoowhrr aoahscwo rarroo, ahwh ra rrraanrakro wwrarc,\n wwrarc raohraro...."
   }],
   [undefined, {
     name: "English",
     queryValue: "",
-    imgUrl: "https://avatarfiles.alphacoders.com/184/thumb-1920-184808.jpg"
+    imgUrl: "https://avatarfiles.alphacoders.com/184/thumb-1920-184808.jpg",
+    episodeTranslation: "Episode",
+    introTranslation: "A long time ago, in a galaxy far,\nfar away...."
   }]
 ])
 

@@ -12,4 +12,5 @@ export enum Urls {
   EDITOR_SLUG = '/editor/:slug',
   PROFILE = '/@:username',
   ARTICLE = '/article/:slug',
+  STAR_WARS_CRAWL ='/star-wars-crawl/'
 }

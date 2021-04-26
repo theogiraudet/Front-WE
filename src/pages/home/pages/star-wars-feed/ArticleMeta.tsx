@@ -10,7 +10,7 @@ export const ArticleMeta: React.FC<Props> = ({
     pictureUrl
 }) => (
     <div className="article-meta">
-        <img alt="Chewbacca" src={pictureUrl} />
+        <img alt="picture" src={pictureUrl} />
         <div className="info">
             <span className="author">
                 {name}
