@@ -1,5 +1,5 @@
 import {MovieEnglishDetails} from "pages/home/pages/star-wars-feed/model/types";
-import {ArticleMeta} from './ArticleMeta';
+import {MovieMeta} from './MovieMeta';
 import {Link} from "react-router-dom";
 import {Tag, TagList} from "ui";
 
@@ -36,7 +36,7 @@ function romanize(number: number) {
  * @param episode_id - le numéro du film
  * @param pictureUrl - le lien vers l'image de profil associé au Preview
  * @param episodeTranslation - le texte "Episode" traduit dans la langue sélectionnée
- * @param introTranslation - le texte "A long time ago..." traduit dans la langue sélectionnée
+ * @param introTranslation - le texte "A long time ago[...]" traduit dans la langue sélectionnée
  */
 export const DetailPreview: React.FC<Props> = ({
     data: {
@@ -54,11 +54,12 @@ export const DetailPreview: React.FC<Props> = ({
     const text = opening_crawl.replaceAll(" ", "+").replaceAll("\r\n", "\\r\\n")
     const intro = introTranslation.replaceAll("\n", "\\n")
 
+    // Le texte à afficher en preview, tronqué à 250 caractères
     const dispText = opening_crawl.substring(0, 250) + (opening_crawl.length > 250 ? "[...]" : "")
 
     return (
     <article className="article-preview">
-        <ArticleMeta pictureUrl={pictureUrl} date={release_date} name={director}/>
+        <MovieMeta pictureUrl={pictureUrl} date={release_date} name={director}/>
         <span className="preview-link">
             <h1>{title}</h1>
             <p>{dispText}</p>

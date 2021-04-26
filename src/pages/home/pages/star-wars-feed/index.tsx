@@ -32,8 +32,8 @@ const StarWarsFeedPage: React.FC = () => {
     return (
         <>
             <DropdownButton className="float-right" variant="success" id="dropdown-basic-button" title="Language">
-                {Array.from(languageMap.entries()).sort().map(lang => (
-                    <Dropdown.Item href={`star-wars-feed?${lang[0] || ""}`}>{lang[1].name}</Dropdown.Item>
+                {Array.from(languageMap.entries()).sort().map((lang, i) => (
+                    <Dropdown.Item key={i} href={`star-wars-feed?${lang[0] || ""}`}>{lang[1].name}</Dropdown.Item>
                     ))}
             </DropdownButton>
 

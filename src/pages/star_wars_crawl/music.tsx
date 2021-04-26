@@ -1,15 +1,23 @@
-import {Ref, RefObject, useState} from "react";
+import React, {RefObject, useState} from "react";
 
 type Props = {
     refAudio: RefObject<HTMLAudioElement>
 }
-
+/**
+ * Composant représentant la gestion de la musique sur la page Star Wars Crawl
+ * Ce composant a été séparé du reste pour ne pas rerendre toute la page (et donc faire buguer l'animation) lors
+ * du changement d'état de ce composant à la désactivation de la musique.
+ * Ainsi, seul se composant sera rerendu à la désactivation/réactivation de la musique
+ * @param refAudio la référence vers le composant audio
+ */
 export const MusicSW: React.FC<Props> = ({
         refAudio
     }) => {
 
+    // État de la musique (mutée ou non)
     const [musicState, setState] = useState<Boolean>(false)
 
+    // Au clic sur l'icône de volume, on inverse l'état de la musique et on actualise l'icône
     const onVolumeClick = () => {
         if(musicState)
             refAudio.current!.muted = false
